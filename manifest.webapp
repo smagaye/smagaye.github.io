@@ -1,0 +1,40 @@
+{
+  "version": "2.1",
+  "name": "Pedometer+",
+  "description": "Pedometer+ for Firefox OS",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Sébastien Menigot <sebastro19@mailoo.org>",
+    "url": "http://sebastien.menigot.free.fr/index.php?view=article&id=93"
+  },
+  "installs_allowed_from": ["*"],
+  "locales": {
+    "en": {
+      "name": "Pedometer+",
+      "description": "Pedometer+ for Firefox OS"
+    },
+    "es": {
+      "name": "Podómetro+",
+      "description": "Podómetro+ por Firefox OS"
+    },
+    "fr": {
+      "name": "Podometre+",
+      "description": "Podometre+ pour Firefox OS"
+    }
+  },
+  "default_locale": "en",
+  "icons": {
+	"256": "/img/pedometer-256.png",
+    "128": "/img/pedometer-128.png",
+    "120": "/img/pedometer-120.png",
+	"90": "/img/pedometer-90.png",
+    "60": "/img/pedometer-60.png",
+	"32": "/img/pedometer-32.png"
+  },
+  "orientation": "portrait-primary",
+  "permissions": {
+    "geolocation": {
+      "description": "Used to displays the current location of the phone, coordinates are displayed on the main page"
+    }
+  }
+}
