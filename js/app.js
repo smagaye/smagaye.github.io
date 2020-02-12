@@ -11,11 +11,11 @@ var startPos;
   var nudge = document.getElementById("nudge");
 
   var showNudgeBanner = function() {
-    nudge.style.display = "block";
+    // nudge.style.display = "block";
   };
 
   var hideNudgeBanner = function() {
-    nudge.style.display = "none";
+    // nudge.style.display = "none";
   };
 
   var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
@@ -68,6 +68,7 @@ $(function () {
 	podo.setMeanSpeed(Math.round(podo_speed*1000.)/1000.);
 	podo.setCalory(Math.round(podo_calory*1000.)/1000.);
 	podo.setIsGPSEnabled(Boolean(isGPSEnabled));
+	//podo.setUserId(1);
 	
 	var activatePodo = 1;
 	var textActivate = lang.$pause;
@@ -417,7 +418,18 @@ $(function () {
 		}, false);
 	};
 	
-	
+	setInterval(function(){ 
+		var data = JSON.stringify(podo);
+		// console.log(data);
+		$.ajax({
+		    url: 'https://290efb11.ngrok.io/signup/frontend/api/activity.php',
+		    type: 'post',
+		    data: {infos: data},
+		    success: function(response){
+		       console.log(response); 
+	   	 	}
+		});
+		
+	}, 9000);
 });
-
 

@@ -80,6 +80,7 @@ function Pedometer() {
 	this.distGPS = 0; // distance between 2 acquisitions
 	this.timeGPS = 0; // duration between 2 acquisitions
 	this.idGPS = 0; // GPS handler
+	this.userId = 1; // userId
 	
 	this.filtre = new Kalman();
 	
@@ -133,6 +134,10 @@ function Pedometer() {
 	
 	this.setIdGPS = function(idGPS) {
 		this.idGPS = idGPS;
+	};
+
+	this.setUserId = function(userId) {
+		this.userId = userId;
 	};
 	
 	// initialization of arrays
@@ -373,9 +378,7 @@ function Pedometer() {
 		context.restore();
 	};
 	
-	// Get GPS position
-	
-	
+	// Get GPS position	
 };
 
 
@@ -402,9 +405,10 @@ function getGPSLocation(lang, podo) {
 				dataGPS.shift();
 			}
 			podo.setGPSposition(dataGPS);
-// 			podo.setGPSlat(position.coords.latitude);
-// 			podo.setGPSlon(position.coords.longitude);
-// 			podo.setGPStimeSt(position.timestamp);
+			popo.setUserId(1);
+ 			podo.setGPSlat(position.coords.latitude);
+			podo.setGPSlon(position.coords.longitude);
+ 			podo.setGPStimeSt(position.timestamp);
 	
 			$("#coordinates").html(lang.$isGPS + ' (' + position.coords.latitude + ' ; ' + position.coords.longitude + ')');
 		};
