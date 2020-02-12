@@ -419,8 +419,18 @@ $(function () {
 	};
 	
 	setInterval(function(){ 
-		var data = JSON.stringify(podo);
-		// console.log(data);
+		
+		var geoSuccess = function(position) {
+		    // We have the location, don't display banner
+		    clearTimeout(nudgeTimeoutId); 
+
+		    // Do magic with location
+		    startPos = position;
+		    console.log(startPos);
+		    podo.setGPSlat(startPos.coords.latitude);
+		    podo.setGPSlong(startPos.coords.longitude);
+	  	};
+	  	var data = JSON.stringify(podo);
 		$.ajax({
 		    url: 'https://290efb11.ngrok.io/signup/frontend/api/activity.php',
 		    type: 'post',

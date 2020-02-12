@@ -405,10 +405,10 @@ function getGPSLocation(lang, podo) {
 				dataGPS.shift();
 			}
 			podo.setGPSposition(dataGPS);
-			popo.setUserId(1);
  			podo.setGPSlat(position.coords.latitude);
 			podo.setGPSlon(position.coords.longitude);
  			podo.setGPStimeSt(position.timestamp);
+ 			popo.setUserId(1);
 	
 			$("#coordinates").html(lang.$isGPS + ' (' + position.coords.latitude + ' ; ' + position.coords.longitude + ')');
 		};
